@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security</title>
+</head>
+<body>
+<h1>User, welcome profile info page!</h1>
+<br/>
+<p th:text="'First Name: ' + ${user.getFirstname()}"><p/>
+<br/>
+<p th:text="'Last Name: ' + ${user.getLastname()}"><p/>
+<br/>
+<p th:text="'Login: ' + ${user.getUsername()}"><p/>
+<br/>
+<p th:text="'Password: ' + ${user.getPassword()}"><p/>
+<br/>
+<div></div>
+<br/>
+
+<div th:each="role : ${user.getRoles()}" th:if="${role.getRole().equals('ROLE_ADMIN')}">
+    <form th:method="GET" th:action="@{/admin}">
+        <input type="submit" value="Cancel admin panel">
+    </form>
+    <br/>
+</div>
+
+
+
+<br>
+<form th:action="@{/logout}" method="get">
+    <input type="submit" value="Logout" style="font-size: 12px; padding: 5px 30px;"/>
+</form>
+
+</body>
+</html>
