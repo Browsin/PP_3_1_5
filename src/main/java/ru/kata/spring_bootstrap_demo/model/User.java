@@ -1,4 +1,4 @@
-package ru.kata.spring.boot_security.demo.model;
+package ru.kata.spring_bootstrap_demo.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,6 +32,9 @@ public class User implements UserDetails {
 
    @Column(name = "last_name")
    private String lastname;
+
+   @Column(name = "age")
+   private Byte age;
 
    @ManyToMany
    @JoinTable(name = "users_roles",

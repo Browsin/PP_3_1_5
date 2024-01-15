@@ -1,12 +1,13 @@
-package ru.kata.spring.boot_security.demo.controllers;
+package ru.kata.spring_bootstrap_demo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import ru.kata.spring.boot_security.demo.model.User;
-import ru.kata.spring.boot_security.demo.service.RoleService;
-import ru.kata.spring.boot_security.demo.service.UserService;
+import ru.kata.spring_bootstrap_demo.model.User;
+import ru.kata.spring_bootstrap_demo.service.RoleService;
+import ru.kata.spring_bootstrap_demo.service.UserService;
+import java.security.Principal;
 
 @Controller
 @RequestMapping("/admin")
@@ -21,23 +22,15 @@ public class AdminController {
     }
 
     @GetMapping()
-    public String printUsers(ModelMap model) {
+    public String adminPanel(Model model, @ModelAttribute("user") User user,
+                             Principal principal) {
+        model.addAttribute("authenticatedUser",
+                userService.findByUsername(principal.getName()));
+        model.addAttribute("rolesAuthenticatedUser",
+                userService.findByUsername(principal.getName()).getRoles());
         model.addAttribute("users", userService.getAllUsers());
-        return "admin/users";
-    }
-
-    @GetMapping("/newUser")
-    public String newUser(ModelMap model) {
-        model.addAttribute("user", new User());
-        model.addAttribute("roles", roleService.getAllRole());
-        return "admin/createOrUpdateUser";
-    }
-
-    @GetMapping("/updateUser")
-    public String updateUser(@RequestParam(name = "id") Long id, ModelMap model) {
-        model.addAttribute("user", userService.findById(id));
-        model.addAttribute("roles", roleService.getAllRole());
-        return "admin/createOrUpdateUser";
+        model.addAttribute("allRoles", roleService.getAllRole());
+        return "/adminProfile";
     }
 
     @PostMapping("/createOrUpdateUser")
