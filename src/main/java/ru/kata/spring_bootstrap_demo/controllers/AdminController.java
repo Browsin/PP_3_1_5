@@ -24,10 +24,9 @@ public class AdminController {
     @GetMapping()
     public String adminPanel(Model model, @ModelAttribute("user") User user,
                              Principal principal) {
-        model.addAttribute("authenticatedUser",
-                userService.findByUsername(principal.getName()));
-        model.addAttribute("rolesAuthenticatedUser",
-                userService.findByUsername(principal.getName()).getRoles());
+        User authUser = userService.findByUsername(principal.getName());
+        model.addAttribute("authenticatedUser", authUser);
+        model.addAttribute("rolesAuthenticatedUser", authUser.getRoles());
         model.addAttribute("users", userService.getAllUsers());
         model.addAttribute("allRoles", roleService.getAllRole());
         return "/adminProfile";
