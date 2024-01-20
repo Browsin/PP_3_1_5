@@ -10,7 +10,7 @@ import ru.kata.spring_bootstrap_demo.service.UserService;
 import java.security.Principal;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/api/admin")
 public class AdminController {
     private final UserService userService;
     private final RoleService roleService;
