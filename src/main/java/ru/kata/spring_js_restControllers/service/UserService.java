@@ -1,7 +1,7 @@
-package ru.kata.spring_bootstrap_demo.service;
+package ru.kata.spring_js_restControllers.service;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
-import ru.kata.spring_bootstrap_demo.model.User;
+import ru.kata.spring_js_restControllers.model.User;
 import java.util.List;
 
 public interface UserService extends UserDetailsService {

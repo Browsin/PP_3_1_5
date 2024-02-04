@@ -1,4 +1,4 @@
-package ru.kata.spring_bootstrap_demo.configs;
+package ru.kata.spring_js_restControllers.configs;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import ru.kata.spring_bootstrap_demo.service.UserService;
+import ru.kata.spring_js_restControllers.service.UserService;
 
 
 @Configuration
@@ -38,8 +38,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/api/admin/**").hasRole("ADMIN")
-                .antMatchers("/api/users/**").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/user/**").hasAnyRole("ADMIN", "USER")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().successHandler(successUserHandler).permitAll()

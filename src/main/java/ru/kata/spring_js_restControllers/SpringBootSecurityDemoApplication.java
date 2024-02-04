@@ -1,4 +1,4 @@
-package ru.kata.spring_bootstrap_demo;
+package ru.kata.spring_js_restControllers;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

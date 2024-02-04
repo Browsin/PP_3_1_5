@@ -1,4 +1,4 @@
-package ru.kata.spring_bootstrap_demo.model;
+package ru.kata.spring_js_restControllers.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

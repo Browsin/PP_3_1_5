@@ -1,14 +1,13 @@
-package ru.kata.spring_bootstrap_demo.controllers;
+package ru.kata.spring_js_restControllers.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.kata.spring_bootstrap_demo.model.User;
-import ru.kata.spring_bootstrap_demo.service.UserService;
+import ru.kata.spring_js_restControllers.model.User;
+import ru.kata.spring_js_restControllers.service.UserService;
 import java.security.Principal;
 
 @RestController
@@ -22,21 +21,9 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping()
-    public ResponseEntity<User> userInfo(Principal principal)  {
+    @GetMapping("/infoAuthUser")
+    public ResponseEntity<User> infoAuthUser(Principal principal)  {
         User user = userService.findByUsername(principal.getName());
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-
-    @GetMapping("/")
-    public String userInfo(Model model, Principal principal)  {
-        model.addAttribute("user",
-                userService.findByUsername(principal.getName()));
-        return "";
-    }
-
-//    @GetMapping()
-//    public ResponseEntity<User> getUserByUsername(@AuthenticationPrincipal User user) {
-//        return new ResponseEntity<>(user, HttpStatus.OK);
-//    }
 }

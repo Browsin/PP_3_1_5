@@ -1,6 +1,6 @@
-package ru.kata.spring_bootstrap_demo.service;
+package ru.kata.spring_js_restControllers.service;
 
-import ru.kata.spring_bootstrap_demo.model.Role;
+import ru.kata.spring_js_restControllers.model.Role;
 import java.util.List;
 
 public interface RoleService {

@@ -1,4 +1,4 @@
-const URLNavbarUser = 'http://localhost:8080/api/user';
+const URLNavbarUser = 'http://localhost:8080/api/user/infoAuthUser';
 const navbarUser = document.getElementById('navbarUser');
 const tableUserUser = document.getElementById('tableUser');
 
@@ -25,13 +25,16 @@ function getCurrentUser() {
         });
 }
 
-getCurrentUser()
+
 
 function rolesToStringForUser(roles) {
     let rolesString = '';
     for (let element of roles) {
-        rolesString += (element.role.toString().replace('ROLE_', '') + ', ');
+        rolesString += (element.role.replace('ROLE_', '') + ', ');
     }
     rolesString = rolesString.substring(0, rolesString.length - 2);
     return rolesString;
 }
+
+
+getCurrentUser()

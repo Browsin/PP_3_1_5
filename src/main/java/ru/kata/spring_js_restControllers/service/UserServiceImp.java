@@ -1,4 +1,4 @@
-package ru.kata.spring_bootstrap_demo.service;
+package ru.kata.spring_js_restControllers.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -6,8 +6,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.kata.spring_bootstrap_demo.model.User;
-import ru.kata.spring_bootstrap_demo.repositories.UserRepository;
+import ru.kata.spring_js_restControllers.model.User;
+import ru.kata.spring_js_restControllers.repositories.UserRepository;
 import java.util.List;
 
 @Service

@@ -1,10 +1,10 @@
-package ru.kata.spring_bootstrap_demo.service;
+package ru.kata.spring_js_restControllers.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.kata.spring_bootstrap_demo.model.Role;
-import ru.kata.spring_bootstrap_demo.repositories.RoleRepository;
+import ru.kata.spring_js_restControllers.model.Role;
+import ru.kata.spring_js_restControllers.repositories.RoleRepository;
 import java.util.List;
 
 @Service

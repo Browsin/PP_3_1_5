@@ -1,4 +1,4 @@
-package ru.kata.spring_bootstrap_demo.configs;
+package ru.kata.spring_js_restControllers.configs;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -16,9 +16,9 @@ public class SuccessUserHandler implements AuthenticationSuccessHandler {
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException {
         Set<String> roles = AuthorityUtils.authorityListToSet(authentication.getAuthorities());
         if (roles.contains("ROLE_ADMIN")) {
-            httpServletResponse.sendRedirect("/api/admin");
+            httpServletResponse.sendRedirect("/admin");
         } else if (roles.contains("ROLE_USER")) {
-            httpServletResponse.sendRedirect("/api/user");
+            httpServletResponse.sendRedirect("/user");
         } else {
             httpServletResponse.sendRedirect("/logout");
         }
