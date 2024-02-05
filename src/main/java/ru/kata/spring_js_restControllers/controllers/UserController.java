@@ -21,7 +21,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/infoAuthUser")
+    @GetMapping("/authorizedInfo")
     public ResponseEntity<User> infoAuthUser(Principal principal)  {
         User user = userService.findByUsername(principal.getName());
         return new ResponseEntity<>(user, HttpStatus.OK);
